@@ -1,0 +1,21 @@
+ALGORITHM algo_1
+VAR
+
+    caractere :CHAR;
+    nb_voyelle :INTEGER: =0;
+    nb_mot :INTEGER: =0;
+    longueur : INTEGER: =0;
+BEGIN
+   WHILE (caractere <> '.') DO
+   IF (caractere='a' OU caractere='A' OU caractere='e' OU caractere='E' OU caractere='u' OU caractere='U'OU caractere='o' OU caractere='O'OU caractere='I' OU caractere='i' ) THEN
+         nb_voyelle=nb_voyelle +1;
+        IF (caractere=' ') THEN
+         nb_mot=nb_mot+1;
+        END_IF
+        
+    longueur ++ ;     
+   END_WHILE
+    write (nb_voyelle);
+   write (nb_mot);
+   write (longueur +1);
+END
