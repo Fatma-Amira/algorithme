@@ -1,0 +1,55 @@
+PROCEDURE  dot_product (v1[],v2[])
+VAR
+ i: INTEGER;
+  ps:INTEGER:=0;
+BEGIN
+FOR i FROM 0 TO  n  DO
+   ps:= ps +v1[i]*v2[i]
+END_FOR 
+ write(ps) ; 
+END
+//fonction
+FUNCTION F_dot_product(v1[],v2[]) : INTEGER
+VAR
+    i: INTEGER;
+  ps:INTEGER:=0;
+BEGIN
+FOR i FROM 0 TO  n  DO
+   ps:= ps +v1[i]*v2[i]
+END_FOR 
+    RETURN ps ;
+END
+//Algorithme en utilisant procedure
+ALGORITHM algorithm_name
+VAR
+   ps,i,j:INTEGER;
+   tab : ARRAY_OF vecteur : ARRAY_OF INTEGER[3]; [];
+BEGIN
+ FOR i FROM 0 TO tab.length-2   DO
+       FOR j FROM i+1 TO tab.length-1 DO
+  IF (dot_product (tab[i],tab[j])==0) THEN
+  Write('T1 et T2 sont orthogonaux');
+ELSE
+    Write('T1 et T2 ne sont pas orthogonaux');
+END_IF
+ END_FOR
+   END_FOR
+END
+// Algorithme en utilisant fonction
+ALGORITHM algorithm_name
+VAR
+   ps,i,j:INTEGER;
+   tab : ARRAY_OF vecteur : ARRAY_OF INTEGER[3]; [];
+BEGIN
+ FOR i FROM 0 TO tab.length-2   DO
+       FOR j FROM i+1 TO tab.length-1 DO
+IF (ps:= F_dot_product(tab[i],tab[j])==0) THEN
+  Write('T1 et T2 sont orthogonaux');
+ELSE
+    Write('T1 et T2 ne sont pas orthogonaux');
+END_IF
+  END_FOR
+   END_FOR
+END
+
+
