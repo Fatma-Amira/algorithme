@@ -1,0 +1,14 @@
+
+FUNCTION ispalindrome(var s:string) : boolean
+VAR
+    set_declarations
+BEGIN
+  IF (s.length() < 2) THEN
+     palindrome := true;
+  ELSE_IF (s[1] = s[s.length()]) THEN
+      palindrome := ispalindrome(copy(s, 2, s.length() - 2))
+  ELSE
+     palindrome := false;
+  END_IF
+    RETURN palindrome ;
+END
