@@ -1,0 +1,17 @@
+
+ALGORITHM algorithm_name
+VAR
+ i,x,j,m:integer;
+ arr : ARRAY_OF integer[];
+BEGIN
+  FOR i FROM 1 TO m-1 STEP 1  DO
+   x ← arr[i]
+   j ← i
+   WHILE (j > 0 && arr[j-1]>x) DO
+     arr[j − 1] ← arr[j]
+8: j ← j − 1
+   END_WHILE
+   arr[j] ← x
+  END_FOR
+END
+
