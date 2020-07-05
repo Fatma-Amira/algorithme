@@ -1,0 +1,66 @@
+// function that gives the number of nodes in the tree.
+   FUNCTION nb_node(struct node^ root) : INTEGER
+   BEGIN
+     IF (root == NULL) THEN
+         return 0;
+    ELSE
+       return 1+nb_node(root^.LC)+nb_node(root^.RC) ;
+    END_IF
+   END
+   //function that gives the height of a tree.
+FUNCTION height_node(struct node^ root) : INTEGER
+BEGIN
+    IF (root == NULL) THEN
+        return 0;  
+    ELSE
+     return 1 + max(height_node((root^.LC), height_node((root^.RC));
+    END_IF
+   
+END
+//function that gives the number of leaves in the tree.
+FUNCTION nb_leaves(struct node^ root) : INTEGER
+BEGIN
+    IF(root == NULL)      
+        return 0;  
+    IF(root^.lC == NULL && root^.RC == NULL)  
+        return 1;          
+    ELSE
+        return nb_leaves(root^.LC)+nb_leaves(root^.RC);  
+        END
+END
+//function that gives the maximum value in the tree.
+FUNCTION max_value(struct node^ root) : INTEGER
+VAR
+  value_node, value_lC,value_RC,max:INTEGER;
+BEGIN
+   
+    IF ( root!=NULL ) THEN
+ value_node:= root^.data; 
+   value_lC:= max_value(root^.LC); 
+    value_RC:= max_value(root^.RC); 
+    IF (value_lC>value_RC) THEN
+         max = value_lC;
+         ELSE
+          max = value_RC;
+    END_IF
+     IF(value_node > max)
+            max = value_node;
+    END_IF
+END_IF
+    RETURN max ;
+END
+
+// function to test if the tree is a full binary tree.
+FUNCTION isFullTree(struct Node^ root) : BOOLEAN
+BEGIN
+ IF (root <> NULL) THEN
+   IF (root^.lC == NULL && root^.RC == NULL) THEN
+      return true;
+    END_IF
+    IF ((root^.LC) && ((root^.RC)) THEN
+    return (isFullTree(root^.LC) && isFullTree(root^.RC));
+     END_IF
+ELSE
+    return false;
+END_IF
+END
